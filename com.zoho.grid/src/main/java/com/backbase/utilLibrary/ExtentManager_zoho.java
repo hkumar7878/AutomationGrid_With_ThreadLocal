@@ -15,7 +15,7 @@ private static ExtentReports extent;
 		if(extent==null){
 			
 			Date d=new Date();
-			String fileName=d.toString().replace(":", "_").replace(" ", "_")+".html";
+			String fileName= "Jenkins_" + d.toString().replace(":", "_").replace(" ", "_")+".html";
 			
 			
 			extent = new ExtentReports(System.getProperty("user.dir")+"\\reports\\" + fileName,true,DisplayOrder.OLDEST_FIRST);
