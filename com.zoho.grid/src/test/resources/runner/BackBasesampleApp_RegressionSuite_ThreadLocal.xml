@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Zoho Regression Suite" parallel="tests"
+	thread-count="2">
+	<listeners>
+		<listener class-name="com.zoho.listeners.CustomListeners" />
+	</listeners>
+	<test name="Chrome">
+		<parameter name="browserType" value="Chrome"></parameter>
+		<classes>
+			<class name="com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local">
+				<methods>
+					<include name="TC_01_Zoho_HomePage_Verification_Thread_Local" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Firefox">
+		<parameter name="browserType" value="Firefox"></parameter>
+		<classes>
+			<class name="com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local">
+				<methods>
+					<include name="TC_01_Zoho_HomePage_Verification_Thread_Local" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+</suite>

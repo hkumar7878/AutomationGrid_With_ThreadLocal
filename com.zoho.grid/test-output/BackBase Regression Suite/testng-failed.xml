@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" name="Failed suite [BackBase Regression Suite]" parallel="tests">
+  <parameter name="browserType" value="Chrome"/>
+  <listeners>
+    <listener class-name="com.zoho.listeners.CustomListeners"/>
+  </listeners>
+  <test name="Windows+Firefox Test(failed)" parallel="tests">
+    <parameter name="browserType" value="Firefox"/>
+    <classes>
+      <class name="com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local">
+        <methods>
+          <include name="TC_01_Verify_App_Home_Page_Thread_Local"/>
+          <include name="getMethodName"/>
+          <include name="getMethodName"/>
+        </methods>
+      </class> <!-- com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local -->
+    </classes>
+  </test> <!-- Windows+Firefox Test(failed) -->
+  <test name="Windows+Chrome Test(failed)" parallel="tests">
+    <parameter name="browserType" value="Chrome"/>
+    <classes>
+      <class name="com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local">
+        <methods>
+          <include name="TC_01_Verify_App_Home_Page_Thread_Local"/>
+          <include name="getMethodName"/>
+          <include name="getMethodName"/>
+        </methods>
+      </class> <!-- com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local -->
+    </classes>
+  </test> <!-- Windows+Chrome Test(failed) -->
+</suite> <!-- Failed suite [BackBase Regression Suite] -->
