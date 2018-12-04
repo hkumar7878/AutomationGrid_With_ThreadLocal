@@ -31,17 +31,17 @@ div.shootout {padding:2em;border:3px #4854A8 solid}
 <body>
 <table cellspacing="0" cellpadding="0" class="result">
 <tr><th>Test</th><th class="numi">Methods<br/>Passed</th><th class="numi">Scenarios<br/>Passed</th><th class="numi"># skipped</th><th class="numi"># failed</th><th class="numi">Total<br/>Time</th><th class="numi">Included<br/>Groups</th><th class="numi">Excluded<br/>Groups</th></tr>
-<tr><td style="text-align:left;padding-right:2em">Chrome</td><td class="numi">0</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">1</td><td class="numi">19.8 seconds</td><td class="numi"></td><td class="numi"></td></tr>
-<tr class="stripe"><td style="text-align:left;padding-right:2em">Firefox</td><td class="numi">0</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">1</td><td class="numi">42.2 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr><td style="text-align:left;padding-right:2em">Chrome</td><td class="numi">0</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">1</td><td class="numi">2.2 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr class="stripe"><td style="text-align:left;padding-right:2em">Firefox</td><td class="numi">0</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">1</td><td class="numi">2.3 seconds</td><td class="numi"></td><td class="numi"></td></tr>
 <tr class="total"><td>Total</td>
-<td class="numi">0</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">2</td><td class="numi">42.2 seconds</td><td colspan="2">&nbsp;</td></tr>
+<td class="numi">0</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">2</td><td class="numi">2.3 seconds</td><td colspan="2">&nbsp;</td></tr>
 </table>
 <table cellspacing="0" cellpadding="0" class="passed" id="summary">
 <tr><th>Class</th><th>Method</th><th># of<br/>Scenarios</th><th>Start</th><th>Time<br/>(ms)</th></tr>
 <tr><th colspan="4">Chrome &#8212; failed</th></tr>
-<tr class="failedodd"><td rowspan="1">com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local</td><td><a href="#m1"><b>TC_01_Verify_App_Home_Page_Thread_Local</b>  </a></td><td class="numi">1</td><td>1543917173735</td><td class="numi">868</td></tr>
+<tr class="failedodd"><td rowspan="1">com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local</td><td><a href="#m1"><b>TC_01_Verify_App_Home_Page_Thread_Local</b>  </a></td><td class="numi">1</td><td>1543931787723</td><td class="numi">54</td></tr>
 <tr><th colspan="4">Firefox &#8212; failed</th></tr>
-<tr class="failedodd"><td rowspan="1">com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local</td><td><a href="#m2"><b>TC_01_Verify_App_Home_Page_Thread_Local</b>  </a></td><td class="numi">1</td><td>1543917194050</td><td class="numi">1006</td></tr>
+<tr class="failedodd"><td rowspan="1">com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local</td><td><a href="#m2"><b>TC_01_Verify_App_Home_Page_Thread_Local</b>  </a></td><td class="numi">1</td><td>1543931787723</td><td class="numi">53</td></tr>
 </table>
 <h1>Chrome</h1>
 <h2 id="m1">com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local:TC_01_Verify_App_Home_Page_Thread_Local</h2>
@@ -51,9 +51,9 @@ div.shootout {padding:2em;border:3px #4854A8 solid}
 </tr>
 <tr><td style="padding-left:3em" colspan="1">
 <p>null</p>
-org.testng.Assert.fail(Assert.java:94)
-<br/>at org.testng.Assert.fail(Assert.java:101)
-<br/>at com.backbase.appPages.Zoho_Page_Home_ThreadLocal.verifyHomePage(Zoho_Page_Home_ThreadLocal.java:63)
+com.zoho.baseSetUp.BaseSetUp_Grid.getThreadValue(BaseSetUp_Grid.java:122)
+<br/>at com.zoho.baseSetUp.BaseSetUp_Grid.addLog(BaseSetUp_Grid.java:116)
+<br/>at com.backbase.appPages.Zoho_Page_Home_ThreadLocal.verifyHomePage(Zoho_Page_Home_ThreadLocal.java:59)
 <br/>at com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local.TC_01_Verify_App_Home_Page_Thread_Local(TC_01_Zoho_HomePage_Verification_Thread_Local.java:61)
 <br/>21 lines not shown
 </td></tr>
@@ -67,9 +67,9 @@ org.testng.Assert.fail(Assert.java:94)
 </tr>
 <tr><td style="padding-left:3em" colspan="1">
 <p>null</p>
-org.testng.Assert.fail(Assert.java:94)
-<br/>at org.testng.Assert.fail(Assert.java:101)
-<br/>at com.backbase.appPages.Zoho_Page_Home_ThreadLocal.verifyHomePage(Zoho_Page_Home_ThreadLocal.java:63)
+com.zoho.baseSetUp.BaseSetUp_Grid.getThreadValue(BaseSetUp_Grid.java:122)
+<br/>at com.zoho.baseSetUp.BaseSetUp_Grid.addLog(BaseSetUp_Grid.java:116)
+<br/>at com.backbase.appPages.Zoho_Page_Home_ThreadLocal.verifyHomePage(Zoho_Page_Home_ThreadLocal.java:59)
 <br/>at com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local.TC_01_Verify_App_Home_Page_Thread_Local(TC_01_Zoho_HomePage_Verification_Thread_Local.java:61)
 <br/>21 lines not shown
 </td></tr>
