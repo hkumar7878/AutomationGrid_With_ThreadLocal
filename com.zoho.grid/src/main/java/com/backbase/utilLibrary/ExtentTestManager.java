@@ -12,7 +12,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 public class ExtentTestManager {
 	
 	static Map extentTestMap = new HashMap();
-    static ExtentReports extent = ExtentManager.getReporter();
+    static ExtentReports extent = ExtentManager_old.getReporter();
 
     public static synchronized ExtentTest getTest() {
         return (ExtentTest) extentTestMap.get((int) (long) (Thread.currentThread().getId()));

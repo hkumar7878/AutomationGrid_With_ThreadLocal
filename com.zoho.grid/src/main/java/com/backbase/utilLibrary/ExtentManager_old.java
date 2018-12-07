@@ -1,7 +1,7 @@
 package com.backbase.utilLibrary;
 import com.relevantcodes.extentreports.ExtentReports;
 
-public class ExtentManager {
+public class ExtentManager_old {
 	static ExtentReports extent;
 	final static String filePath = "./Report_AddNewComputer/TestResults_Report.html";
   

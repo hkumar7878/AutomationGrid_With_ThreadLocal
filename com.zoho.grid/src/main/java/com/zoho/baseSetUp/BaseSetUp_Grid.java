@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
 import java.util.Properties;
@@ -18,17 +19,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
+import org.testng.annotations.BeforeSuite;
 
-
+import com.backbase.utilLibrary.DriverFactory;
 import com.backbase.utilLibrary.ExcelReader;
 import com.backbase.utilLibrary.ExtentManager_zoho;
-
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+import com.zoho.extentlisteners.ExtentListeners;
 
 
 public class BaseSetUp_Grid {
@@ -36,17 +39,17 @@ public class BaseSetUp_Grid {
 	//public static final Logger logger = Logger.getLogger(Test.class.getName());
 	
 	public String app_Url;
-	public String browserType;
 	public String browserName;
 	DesiredCapabilities cap=null;
 	public static ExcelReader excelReader = null;
 	public static Properties prop;
 	public static ExcelReader ExcelRd_Obj_Test_Suite = null;
-	String browser=null;
 	public WebDriver driver1;
-	protected RemoteWebDriver driver;
+	//protected RemoteWebDriver driver;
+	protected WebDriver driver;
 	protected RemoteWebDriver driver_td;
-	public static ThreadLocal<RemoteWebDriver> dr = new ThreadLocal<RemoteWebDriver>();
+	//public static ThreadLocal<RemoteWebDriver> dr = new ThreadLocal<RemoteWebDriver>();
+	public static ThreadLocal<WebDriver> dr = new ThreadLocal<WebDriver>();
 	public static ThreadLocal<ExtentTest> exTest= new ThreadLocal<ExtentTest>(); 
 	public static ExcelReader excel = new ExcelReader(System.getProperty("user.dir") + "\\src\\test\\resources\\Testdata\\LoginSuite.xlsx");
 	public static ExcelReader mstrSuite = new ExcelReader(System.getProperty("user.dir") + "\\src\\test\\resources\\Testdata\\MasterSuite.xlsx");
@@ -55,6 +58,9 @@ public class BaseSetUp_Grid {
 	public static String screenshotPath;
 	public static String screenshotName;
 	public static Logger logger = Logger.getLogger("devpinoyLogger");
+	public FileInputStream fis;
+	private Properties Config = new Properties();
+	public boolean gridExecution=false;
 	
 	public BaseSetUp_Grid() {
 		try {
@@ -72,12 +78,48 @@ public class BaseSetUp_Grid {
 		}
 	}
 	
+	@BeforeSuite
+	public void setUpFramework()
+	{
+		DriverFactory.setGridPath("http://localhost:4444/wd/hub");
+		DriverFactory.setConfigPropertyFile(System.getProperty("user.dir") + "//src//main//java//com//backbase//configuration//configuration.properties");
+		DriverFactory.setChromeDriverExePath(System.getProperty("user.dir") + "//Browser Exes//chromedriver.exe");
+		DriverFactory.setGeckoDriverExePath(System.getProperty("user.dir") + "//Browser Exes//geckodriver.exe");
+		try {
+			fis= new FileInputStream(DriverFactory.getConfigPropertyFile());
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			Config.load(fis);
+			logger.info("Property file loaded!!!!");
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	
-	protected RemoteWebDriver getDriver() {
+	public void configureLogging()
+	{
+		String log4jConfigFile=System.getProperty("user.dir") +"//src//test//resources//properties//log4j1.properties";
+		PropertyConfigurator.configure(log4jConfigFile);
+	}
+	
+	/*protected RemoteWebDriver getDriver() {
+        return dr.get();
+    }*/
+	
+	protected WebDriver getDriver() {
         return dr.get();
     }
 	
-	public void setWebDriver(RemoteWebDriver driver){
+	/*public void setWebDriver(RemoteWebDriver driver){
+		dr.set(driver);
+	}*/
+	
+	public void setWebDriver(WebDriver driver){
 		dr.set(driver);
 	}
 	
@@ -117,6 +159,18 @@ public class BaseSetUp_Grid {
 		logger.info("Browser : " + browser1 + "" +msg);
 	}
 	
+	
+	
+	public void passInfo(String messaage)
+	{
+		ExtentListeners.testReport.get().pass(messaage);
+	}
+	
+	public void failInfo(String messaage)
+	{
+		ExtentListeners.testReport.get().fail(messaage);
+	}
+	
 	public String getThreadValue(Object value)
 	{
 		String text=value.toString();
@@ -128,10 +182,87 @@ public class BaseSetUp_Grid {
 		
 		return reqText;
 	}
-			
+	
 	public void initializeTestBaseSetup3(String browserType) {
-		browser=browserType;
+		
+		
+		String browser=browserType;
+		if(System.getenv("ExecutionType")!=null && System.getenv("ExecutionType").equalsIgnoreCase("Grid")){
+			gridExecution=true;
+		}
+		DriverFactory.setRemote(gridExecution);
 		app_Url = prop.getProperty("App_URL");
+		//app_Url = Config.getProperty("App_URL");
+		
+		if(DriverFactory.isRemote())		
+		{		
+			if (browserType.contains("Firefox")) 
+				{										
+					System.out.println("Local Thread- Docker--Launching firefox browser");
+					logger.info("Creating a object of Firefox Browser");
+					logger.info("Navigating to " + app_Url + "for Firefox browser");		
+					cap = DesiredCapabilities.firefox();
+					cap.setBrowserName("firefox");
+					cap.setPlatform(Platform.ANY);													
+				}			
+				else if (browserType.contains("Chrome")) 
+				{	
+					logger.info("Creating a object of Chrome Browser");
+					System.out.println("Local Thread--Docker - Config- Launching Chrome browser......");			
+					ChromeOptions chromeOptions = new ChromeOptions();
+					chromeOptions.addArguments("disable-gpu");
+					cap = DesiredCapabilities.chrome();
+					cap.setCapability(ChromeOptions.CAPABILITY, chromeOptions);						
+				}
+				try {
+					driver=new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),cap);
+				} catch (MalformedURLException e) {
+					e.printStackTrace();
+				}
+				logger.info("Starting the grid session");
+		}
+		
+		else 
+		{
+			if (browserType.contains("Chrome")) 
+			{
+				System.out.println("Launching Chrome browser");
+				System.setProperty("webdriver.chrome.driver", DriverFactory.getChromeDriverExePath());
+				driver= new ChromeDriver();	
+				logger.info("Chrome browwer launched");
+			}
+			else if(browserType.contains("Firefox")) 
+			{
+				System.out.println("Launching Firefox browser");
+				FirefoxOptions firefox_options  = new FirefoxOptions();
+				firefox_options.setCapability("marionette", true);
+				System.setProperty("webdriver.gecko.driver", DriverFactory.getGeckoDriverExePath());
+				driver= new FirefoxDriver(firefox_options);	
+				logger.info("Firefox browser launched");
+			}
+				
+		}
+		
+		setWebDriver(driver);
+		getDriver().manage().window().maximize();
+		//String s1=app_Url;
+		//getDriver().get("http://computer-database.herokuapp.com/computers");
+		getDriver().get(app_Url);
+		getExtTest().log(LogStatus.INFO, "Opening application and navigating to Application");
+		getExtTest().log(LogStatus.INFO, "Application opened successfully for " + browser + " browser");
+		System.out.println(dr.get());
+		System.out.println("Application opened successfully for " + browser);
+		System.out.println("Application opened successfully for " + browser);
+				
+	} 				
+	
+
+	
+	/*public void initializeTestBaseSetup3(String browserType) {
+		//DriverFactory.setRemote(true);
+		String browser=browserType;
+		//app_Url = prop.getProperty("App_URL");
+		app_Url = Config.getProperty("App_URL");
 			try {
 				if (browserType.contains("Firefox")) 
 				{										
@@ -155,19 +286,36 @@ public class BaseSetUp_Grid {
 				}
 				driver=new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),cap);
 				setWebDriver(driver);
-				driver_td=getDriver();
+				//driver_td=getDriver();
 				getDriver().manage().window().maximize();
 				getDriver().get(app_Url);
 				getExtTest().log(LogStatus.INFO, "Opening application and navigating to Application");
-				getExtTest().log(LogStatus.INFO, "Application opened successfully for " + browserType + " browser");
+				getExtTest().log(LogStatus.INFO, "Application opened successfully for " + browser + " browser");
 				System.out.println(dr.get());
+				System.out.println("Application opened successfully for " + browser);
+				//ExtentListeners.testReport.get().info("Test");
+				String s1=browser;
+				//logInfo(s1);
+				System.out.println("Application opened successfully for " + browser);
 				
 			} 				
 			catch (Exception e) 
 			{
 				System.out.println("Error....." + e.getMessage());
 			}	
-}
+}*/
+	
+	
+	
+	public void logInfo(String messaage)
+	{
+		try{
+			ExtentListeners.testReport.get().info(messaage);
+		}
+		catch(Exception e){
+			System.out.println("Error is" + e.getMessage());
+		}
+	}
 	
 	public static String [][] getExcelData1(String ExcelName,String SheetName)
 	 {
@@ -191,11 +339,11 @@ public class BaseSetUp_Grid {
 	// from Jenkins
 	public void initializeTestBaseSetup1(String browserType) {
 		if(System.getenv("Browser")!=null && !System.getenv("browser").isEmpty())
-			browser = System.getenv("browser");
-		else
-			browser = prop.getProperty("browser");
+			//browser = System.getenv("browser");
+		//else
+			//browser = prop.getProperty("browser");
 		
-		prop.setProperty("Browser_Type", browser);
+		//prop.setProperty("Browser_Type", browser);
 		app_Url = prop.getProperty("App_URL");
 		browserName=prop.getProperty("Browser_Type");
 		

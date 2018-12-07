@@ -10,14 +10,8 @@ import org.testng.ISuite;
 import org.testng.ISuiteListener;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
-
 import org.testng.ITestResult;
-
 import com.zoho.baseSetUp.BaseSetUp_Grid;
-
-
-
-
 
 public class CustomListeners extends BaseSetUp_Grid implements IInvokedMethodListener2,ITestListener, ISuiteListener, IInvokedMethodListener  {
 

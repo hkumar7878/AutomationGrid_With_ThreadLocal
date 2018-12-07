@@ -31,17 +31,21 @@ div.shootout {padding:2em;border:3px #4854A8 solid}
 <body>
 <table cellspacing="0" cellpadding="0" class="result">
 <tr><th>Test</th><th class="numi">Methods<br/>Passed</th><th class="numi">Scenarios<br/>Passed</th><th class="numi"># skipped</th><th class="numi"># failed</th><th class="numi">Total<br/>Time</th><th class="numi">Included<br/>Groups</th><th class="numi">Excluded<br/>Groups</th></tr>
-<tr><td style="text-align:left;padding-right:2em">Chrome</td><td class="numi">0</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">1</td><td class="numi">2.2 seconds</td><td class="numi"></td><td class="numi"></td></tr>
-<tr class="stripe"><td style="text-align:left;padding-right:2em">Firefox</td><td class="numi">0</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">1</td><td class="numi">2.3 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr><td style="text-align:left;padding-right:2em">Chrome</td><td class="numi">1</td><td class="numi">1</td><td class="numi">0</td><td class="numi">0</td><td class="numi">7.9 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr class="stripe"><td style="text-align:left;padding-right:2em">Firefox</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">1</td><td class="numi">0</td><td class="numi">77.0 seconds</td><td class="numi"></td><td class="numi"></td></tr>
 <tr class="total"><td>Total</td>
-<td class="numi">0</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">2</td><td class="numi">2.3 seconds</td><td colspan="2">&nbsp;</td></tr>
+<td class="numi">1</td><td class="numi">1</td><td class="numi_attn">1</td><td class="numi">0</td><td class="numi">77.0 seconds</td><td colspan="2">&nbsp;</td></tr>
 </table>
 <table cellspacing="0" cellpadding="0" class="passed" id="summary">
 <tr><th>Class</th><th>Method</th><th># of<br/>Scenarios</th><th>Start</th><th>Time<br/>(ms)</th></tr>
-<tr><th colspan="4">Chrome &#8212; failed</th></tr>
-<tr class="failedodd"><td rowspan="1">com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local</td><td><a href="#m1"><b>TC_01_Verify_App_Home_Page_Thread_Local</b>  </a></td><td class="numi">1</td><td>1543931787723</td><td class="numi">54</td></tr>
-<tr><th colspan="4">Firefox &#8212; failed</th></tr>
-<tr class="failedodd"><td rowspan="1">com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local</td><td><a href="#m2"><b>TC_01_Verify_App_Home_Page_Thread_Local</b>  </a></td><td class="numi">1</td><td>1543931787723</td><td class="numi">53</td></tr>
+<tr><th colspan="4">Chrome &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="1">com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local</td><td><a href="#m1"><b>TC_01_Verify_App_Home_Page_Thread_Local</b>  </a></td><td class="numi">1</td><td>1544158651480</td><td class="numi">221</td></tr>
+<tr><th colspan="4">Firefox &#8212; failed (configuration methods)</th></tr>
+<tr class="failedodd"><td rowspan="1">com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local</td><td><a href="#m2"><b>getMethodName</b>  </a></td><td class="numi">1</td><td>1544158645516</td><td class="numi">0</td></tr>
+<tr><th colspan="4">Firefox &#8212; skipped (configuration methods)</th></tr>
+<tr class="skippedodd"><td rowspan="1">com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local</td><td><a href="#m3"><b>afterEachTest</b>  </a></td><td class="numi">1</td><td>1544158722493</td><td class="numi">0</td></tr>
+<tr><th colspan="4">Firefox &#8212; skipped</th></tr>
+<tr class="skippedodd"><td rowspan="1">com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local</td><td><a href="#m4"><b>TC_01_Verify_App_Home_Page_Thread_Local</b>  </a></td><td class="numi">1</td><td>1544158722478</td><td class="numi">0</td></tr>
 </table>
 <h1>Chrome</h1>
 <h2 id="m1">com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local:TC_01_Verify_App_Home_Page_Thread_Local</h2>
@@ -49,30 +53,66 @@ div.shootout {padding:2em;border:3px #4854A8 solid}
 <tr class="param"><th>Parameter #1</th></tr>
 <tr class="param stripe"><td>{Company Name=Apple Inc., Introducation Date=2018-11-22, Discontinued Date=2019-11-22, Computer Name=Solaris XYZ Contact Series1238}</td>
 </tr>
-<tr><td style="padding-left:3em" colspan="1">
-<p>null</p>
-com.zoho.baseSetUp.BaseSetUp_Grid.getThreadValue(BaseSetUp_Grid.java:122)
-<br/>at com.zoho.baseSetUp.BaseSetUp_Grid.addLog(BaseSetUp_Grid.java:116)
-<br/>at com.backbase.appPages.Zoho_Page_Home_ThreadLocal.verifyHomePage(Zoho_Page_Home_ThreadLocal.java:59)
-<br/>at com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local.TC_01_Verify_App_Home_Page_Thread_Local(TC_01_Zoho_HomePage_Verification_Thread_Local.java:61)
-<br/>21 lines not shown
-</td></tr>
 </table>
 <p class="totop"><a href="#summary">back to summary</a></p>
 <h1>Firefox</h1>
-<h2 id="m2">com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local:TC_01_Verify_App_Home_Page_Thread_Local</h2>
+<h2 id="m2">com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local:getMethodName</h2>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr>
+<tr class="param stripe"><td>public void com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local.TC_01_Verify_App_Home_Page_Thread_Local(java.util.Map) throws java.text.ParseException,java.lang.InterruptedException,java.lang.reflect.InvocationTargetException</td>
+<td>Firefox</td>
+</tr>
+<tr><td style="padding-left:3em" colspan="2">
+<p>newSession
+Build info: version: &apos;3.12.0&apos;, revision: &apos;7c6e0b3&apos;, time: &apos;2018-05-08T14:04:26.12Z&apos;
+System info: host: &apos;PG014UCR&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_181&apos;
+Driver info: driver.version: FirefoxDriver
+remote stacktrace: WebDriverError@chrome://marionette/content/error.js:178:5
+UnknownCommandError@chrome://marionette/content/error.js:472:5
+despatch@chrome://marionette/content/server.js:283:13
+execute@chrome://marionette/content/server.js:264:11
+onPacket/&lt;@chrome://marionette/content/server.js:237:15
+onPacket@chrome://marionette/content/server.js:236:8
+_onJSONObjectReady/&lt;@chrome://marionette/content/transport.js:490:9
+</p>
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+<br/>at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+<br/>at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+<br/>at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+<br/>at org.openqa.selenium.remote.W3CHandshakeResponse.lambda$new$0(W3CHandshakeResponse.java:57)
+<br/>at org.openqa.selenium.remote.W3CHandshakeResponse.lambda$getResponseFunction$2(W3CHandshakeResponse.java:104)
+<br/>at org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$0(ProtocolHandshake.java:123)
+<br/>at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+<br/>at java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:958)
+<br/>at java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:126)
+<br/>at java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:498)
+<br/>at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:485)
+<br/>at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+<br/>at java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:152)
+<br/>at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+<br/>at java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:464)
+<br/>at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:126)
+<br/>at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:73)
+<br/>at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
+<br/>at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+<br/>at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
+<br/>at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:207)
+<br/>at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:130)
+<br/>at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:125)
+<br/>at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:103)
+<br/>at com.zoho.baseSetUp.BaseSetUp_Grid.initializeTestBaseSetup3(BaseSetUp_Grid.java:230)
+<br/>at com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local.getMethodName(TC_01_Zoho_HomePage_Verification_Thread_Local.java:53)
+<br/>23 lines not shown
+</td></tr>
+</table>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m3">com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local:afterEachTest</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m4">com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local:TC_01_Verify_App_Home_Page_Thread_Local</h2>
 <table cellspacing="0" cellpadding="0" class="result">
 <tr class="param"><th>Parameter #1</th></tr>
 <tr class="param stripe"><td>{Company Name=Apple Inc., Introducation Date=2018-11-22, Discontinued Date=2019-11-22, Computer Name=Solaris XYZ Contact Series1238}</td>
 </tr>
-<tr><td style="padding-left:3em" colspan="1">
-<p>null</p>
-com.zoho.baseSetUp.BaseSetUp_Grid.getThreadValue(BaseSetUp_Grid.java:122)
-<br/>at com.zoho.baseSetUp.BaseSetUp_Grid.addLog(BaseSetUp_Grid.java:116)
-<br/>at com.backbase.appPages.Zoho_Page_Home_ThreadLocal.verifyHomePage(Zoho_Page_Home_ThreadLocal.java:59)
-<br/>at com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local.TC_01_Verify_App_Home_Page_Thread_Local(TC_01_Zoho_HomePage_Verification_Thread_Local.java:61)
-<br/>21 lines not shown
-</td></tr>
 </table>
 <p class="totop"><a href="#summary">back to summary</a></p>
 </body></html>

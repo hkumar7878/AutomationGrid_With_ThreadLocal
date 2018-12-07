@@ -4,6 +4,7 @@ package com.backbase.appPages;
 
 import java.util.ArrayList;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -24,7 +25,7 @@ public class Zoho_Page_Home_ThreadLocal extends BaseSetUp_Grid{
 	GenericUtilLib genericUtil_Obj= new GenericUtilLib();
 	//RemoteWebDriver driver;
 	
-	public Zoho_Page_Home_ThreadLocal(RemoteWebDriver driver)
+	public Zoho_Page_Home_ThreadLocal(WebDriver driver)
     {
     	this.driver = driver;
     	PageFactory.initElements(driver,this);
@@ -49,6 +50,7 @@ public class Zoho_Page_Home_ThreadLocal extends BaseSetUp_Grid{
             System.out.println("Home Page is displayed successfully");
             reportPass("Home Page is displayed successfully");
             addLog("Home Page is displayed successfully" + bName1,bName1);
+           passInfo("Home Page is displayed successfully" + bName1);
                     
         }
         catch(AssertionError | Exception e)
@@ -59,6 +61,7 @@ public class Zoho_Page_Home_ThreadLocal extends BaseSetUp_Grid{
         		 addLog("Home Page is NOT displayed successfully" + bName1,bName1);
         		System.out.println("Home Page is NOT displayed successfully");
             	reportFailure("Home Page is not displayed" + bName1);
+            failInfo("Home Page is NOT displayed successfully" + bName1);
             	Assert.fail();
         }
     }

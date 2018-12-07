@@ -68,14 +68,7 @@
 			</plugin>
 		</plugins>
 		
-		<testResources>
-      <testResource>
-        <directory>src/test/resources/properties</directory>
-        <includes>
-          <include>log4j.properties</include>
-        </includes>
-      </testResource>
-    </testResources>
+	
 	</build>
 
 	<dependencies>
@@ -89,6 +82,12 @@
 			<groupId>com.relevantcodes</groupId>
 			<artifactId>extentreports</artifactId>
 			<version>2.40.2</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>com.aventstack</groupId>
+    		<artifactId>extentreports</artifactId>
+    		<version>3.1.5</version>
 		</dependency>
 
 		<dependency>

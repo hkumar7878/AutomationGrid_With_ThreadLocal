@@ -49,6 +49,7 @@ public class TC_01_Zoho_HomePage_Verification_Thread_Local extends BaseSetUp_Gri
 		 System.out.println("Starting " + method.getName() + "test case" );		
 		 test=rep.startTest("Verify App Home Page" + "_" + bName);
 		 setExtentTest(test);
+		 //logInfo("Launching broswer which is " + bName);
 		 initializeTestBaseSetup3(bName);
 	}
 	
@@ -57,17 +58,18 @@ public class TC_01_Zoho_HomePage_Verification_Thread_Local extends BaseSetUp_Gri
 	public void TC_01_Verify_App_Home_Page_Thread_Local(Map <String,String> data) throws ParseException, InterruptedException, InvocationTargetException
 	{	
 
+	//	String bName=browserType;
+		logInfo("Starting the test for ");
+		//String s1=data.get("browser");
 		homePgObj_td= new Zoho_Page_Home_ThreadLocal(getDriver());
 		homePgObj_td.verifyHomePage(bName);
 	}
 
-	
 	@AfterMethod
 	   public void afterEachTest(ITestResult result) throws InterruptedException {
 	        try
 	        {
-
-	            System.out.println("Inside After Method of test case");
+	        	System.out.println("Inside After Method of test case");
 	            actionAfterTest.testCaseReportUp();
 	        }
 

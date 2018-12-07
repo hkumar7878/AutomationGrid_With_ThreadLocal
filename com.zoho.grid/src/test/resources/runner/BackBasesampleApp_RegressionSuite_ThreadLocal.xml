@@ -3,7 +3,9 @@
 <suite name="Zoho Regression Suite" parallel="tests"
 	thread-count="2">
 	<listeners>
+	<listener class-name="com.zoho.extentlisteners.ExtentListeners"/>
 		<listener class-name="com.zoho.listeners.CustomListeners" />
+		
 	</listeners>
 	<test name="Chrome">
 		<parameter name="browserType" value="Chrome"></parameter>
