@@ -45,10 +45,8 @@ public class BaseSetUp_Grid {
 	public static Properties prop;
 	public static ExcelReader ExcelRd_Obj_Test_Suite = null;
 	public WebDriver driver1;
-	//protected RemoteWebDriver driver;
 	protected WebDriver driver;
 	protected RemoteWebDriver driver_td;
-	//public static ThreadLocal<RemoteWebDriver> dr = new ThreadLocal<RemoteWebDriver>();
 	public static ThreadLocal<WebDriver> dr = new ThreadLocal<WebDriver>();
 	public static ThreadLocal<ExtentTest> exTest= new ThreadLocal<ExtentTest>(); 
 	public static ExcelReader excel = new ExcelReader(System.getProperty("user.dir") + "\\src\\test\\resources\\Testdata\\LoginSuite.xlsx");
@@ -99,6 +97,8 @@ public class BaseSetUp_Grid {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		configureLogging();
 	}
 	
 	public void configureLogging()
@@ -185,12 +185,12 @@ public class BaseSetUp_Grid {
 	
 	public void initializeTestBaseSetup3(String browserType) {
 		
-		
 		String browser=browserType;
 		if(System.getenv("ExecutionType")!=null && System.getenv("ExecutionType").equalsIgnoreCase("Grid")){
 			gridExecution=true;
 		}
-		DriverFactory.setRemote(gridExecution);
+		//DriverFactory.setRemote(gridExecution);
+		DriverFactory.setRemote(true);
 		app_Url = prop.getProperty("App_URL");
 		//app_Url = Config.getProperty("App_URL");
 		
@@ -253,6 +253,7 @@ public class BaseSetUp_Grid {
 		System.out.println(dr.get());
 		System.out.println("Application opened successfully for " + browser);
 		System.out.println("Application opened successfully for " + browser);
+		logger.info("inside the base class method browser initilization");
 				
 	} 				
 	
@@ -333,69 +334,4 @@ public class BaseSetUp_Grid {
 	    	return excelData;
 	 }
 
-	
-	
-	// This method can be used while environmental variables i.e browser name
-	// from Jenkins
-	public void initializeTestBaseSetup1(String browserType) {
-		if(System.getenv("Browser")!=null && !System.getenv("browser").isEmpty())
-			//browser = System.getenv("browser");
-		//else
-			//browser = prop.getProperty("browser");
-		
-		//prop.setProperty("Browser_Type", browser);
-		app_Url = prop.getProperty("App_URL");
-		browserName=prop.getProperty("Browser_Type");
-		
-		
-		try {		
-			//if (browserName.contains("Firefox")) {
-			if (prop.getProperty("Browser_Type").equals("Firefox")) {
-				System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir") + "\\" + "Browser Exes/geckodriver.exe");
-				System.out.println("Launching firefox browser");
-				logger.info("Creating a object of Firefox Browser");
-				logger.info("Navigating to " + app_Url + "for Firefox browser");	
-				driver = new FirefoxDriver();		
-				driver.get(app_Url);			
-				driver.manage().window().maximize();
-			}
-			
-			//else if (browserName.contains("Chrome")) {
-			else if (prop.getProperty("Browser_Type").equals("Chrome")) {
-				System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") + "\\" + "Browser Exes/chromedriver.exe");
-				System.out.println("Launching chrome browser");
-				logger.info("Creating a object of chrome Browser");
-				logger.info("Navigating to " + app_Url + "for chrome browser");		
-				driver = new ChromeDriver();			
-				driver.get(app_Url);			
-				driver.manage().window().maximize();
-			}
-			
-		} catch (Exception e) {
-			System.out.println("Error....." + e.getMessage());
-		}
-
-	}
-	
-	
-	//@BeforeTest	   
-	 public void onBeforeTest(ITestContext testContext)
-	    {
-	
-		 String log4jConfigPath=System.getProperty("user.dir")+"\\"+ "log4j.properties";
-	     PropertyConfigurator.configure(log4jConfigPath);          
-	        try
-	        {	            
-	                System.out.println("Inside Before Test class of BASE CLASS: FIREFOX");
-	                String filePath=System.getProperty("user.dir")+"\\"+ "TestReportsAllURIsValidation.html";
-	                String filePath1=System.getProperty("user.dir")+"\\"+ "TestReportsAllURIsValidation1.html";
-	                //report=new ExtentReports(filePath,true, DisplayOrder.OLDEST_FIRST);  
-	                //report1=new ExtentReports(filePath1,true, DisplayOrder.OLDEST_FIRST);
-	        }
-	        catch(Exception e)
-	        {
-	            System.out.println(e.getMessage());
-	        }
-	    }
-	
 }

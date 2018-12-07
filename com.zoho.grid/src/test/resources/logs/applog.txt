@@ -1,0 +1,11 @@
+INFO    2018-12-07 11:46:15,418 [TestNG] devpinoyLogger  - Creating a object of Chrome Browser
+INFO    2018-12-07 11:46:15,418 [TestNG] devpinoyLogger  - Creating a object of Firefox Browser
+INFO    2018-12-07 11:46:15,418 [TestNG] devpinoyLogger  - Navigating to http://computer-database.herokuapp.com/computersfor Firefox browser
+INFO    2018-12-07 11:46:19,644 [TestNG] devpinoyLogger  - Starting the grid session
+INFO    2018-12-07 11:46:24,900 [TestNG] devpinoyLogger  - inside the base class method browser initilization
+DEBUG   2018-12-07 11:46:25,111 [TestNG] devpinoyLogger  - Running thread value is : f553cc78111bef564c322d49b898f64c   for Browser :   ChromeHome Page is displayed successfullyChrome
+INFO    2018-12-07 11:46:25,111 [TestNG] devpinoyLogger  - Browser : ChromeHome Page is displayed successfullyChrome
+INFO    2018-12-07 11:46:25,857 [TestNG] devpinoyLogger  - Starting the grid session
+INFO    2018-12-07 11:46:30,566 [TestNG] devpinoyLogger  - inside the base class method browser initilization
+DEBUG   2018-12-07 11:46:30,627 [TestNG] devpinoyLogger  - Running thread value is : 19ea124d113c   for Browser :   FirefoxHome Page is displayed successfullyFirefox
+INFO    2018-12-07 11:46:30,627 [TestNG] devpinoyLogger  - Browser : FirefoxHome Page is displayed successfullyFirefox
