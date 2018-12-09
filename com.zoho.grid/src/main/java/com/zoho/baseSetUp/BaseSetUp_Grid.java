@@ -106,10 +106,7 @@ public class BaseSetUp_Grid {
 		String log4jConfigFile=System.getProperty("user.dir") +"//src//test//resources//properties//log4j1.properties";
 		PropertyConfigurator.configure(log4jConfigFile);
 	}
-	
-	/*protected RemoteWebDriver getDriver() {
-        return dr.get();
-    }*/
+
 	
 	protected WebDriver getDriver() {
         return dr.get();
@@ -183,13 +180,19 @@ public class BaseSetUp_Grid {
 		return reqText;
 	}
 	
+	/*
+	 * Method description: Below initialization method is used to initialize whether the parallel execution of scripts run on
+	 * the local browsers in non-grid environment or parallel execution in grid environment on the basis of 
+	 * the system variables passed from jenkins server.
+	 */
+	
 	public void initializeTestBaseSetup3(String browserType) {
 		
 		String browser=browserType;
 		if(System.getenv("ExecutionType")!=null && System.getenv("ExecutionType").equalsIgnoreCase("Grid")){
 			gridExecution=true;
 		}
-		//DriverFactory.setRemote(gridExecution);
+	
 		DriverFactory.setRemote(true);
 		app_Url = prop.getProperty("App_URL");
 		//app_Url = Config.getProperty("App_URL");
@@ -245,68 +248,13 @@ public class BaseSetUp_Grid {
 		
 		setWebDriver(driver);
 		getDriver().manage().window().maximize();
-		//String s1=app_Url;
-		//getDriver().get("http://computer-database.herokuapp.com/computers");
 		getDriver().get(app_Url);
 		getExtTest().log(LogStatus.INFO, "Opening application and navigating to Application");
 		getExtTest().log(LogStatus.INFO, "Application opened successfully for " + browser + " browser");
 		System.out.println(dr.get());
 		System.out.println("Application opened successfully for " + browser);
-		System.out.println("Application opened successfully for " + browser);
-		logger.info("inside the base class method browser initilization");
-				
+		logger.info("inside the base class method browser initilization");				
 	} 				
-	
-
-	
-	/*public void initializeTestBaseSetup3(String browserType) {
-		//DriverFactory.setRemote(true);
-		String browser=browserType;
-		//app_Url = prop.getProperty("App_URL");
-		app_Url = Config.getProperty("App_URL");
-			try {
-				if (browserType.contains("Firefox")) 
-				{										
-					System.out.println("Local Thread- Docker--Launching firefox browser");
-					logger.info("Creating a object of Firefox Browser");
-					logger.info("Navigating to " + app_Url + "for Firefox browser");		
-					cap = DesiredCapabilities.firefox();
-					cap.setBrowserName("firefox");
-					cap.setPlatform(Platform.ANY);			
-					//driver=new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),cap);															
-				}			
-				else if (browserType.contains("Chrome")) 
-				{	
-					logger.info("Creating a object of Chrome Browser");
-					System.out.println("Local Thread--Docker - Config- Launching Chrome browser......");			
-					ChromeOptions chromeOptions = new ChromeOptions();
-					chromeOptions.addArguments("disable-gpu");
-					cap = DesiredCapabilities.chrome();
-					cap.setCapability(ChromeOptions.CAPABILITY, chromeOptions);		
-					//driver=new RemoteWebDriver(new URL ("http://localhost:4444/wd/hub"), cap);						
-				}
-				driver=new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),cap);
-				setWebDriver(driver);
-				//driver_td=getDriver();
-				getDriver().manage().window().maximize();
-				getDriver().get(app_Url);
-				getExtTest().log(LogStatus.INFO, "Opening application and navigating to Application");
-				getExtTest().log(LogStatus.INFO, "Application opened successfully for " + browser + " browser");
-				System.out.println(dr.get());
-				System.out.println("Application opened successfully for " + browser);
-				//ExtentListeners.testReport.get().info("Test");
-				String s1=browser;
-				//logInfo(s1);
-				System.out.println("Application opened successfully for " + browser);
-				
-			} 				
-			catch (Exception e) 
-			{
-				System.out.println("Error....." + e.getMessage());
-			}	
-}*/
-	
-	
 	
 	public void logInfo(String messaage)
 	{

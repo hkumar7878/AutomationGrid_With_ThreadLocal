@@ -91,8 +91,8 @@ public class MonitoringMail
 
 	    public PasswordAuthentication getPasswordAuthentication()
 	    {
-	        String username = TestConfig.from;
-	        String password = TestConfig.password;
+	        String username = MailConfig.from;
+	        String password = MailConfig.password;
 	        return new PasswordAuthentication(username, password);
 	    }
 	}

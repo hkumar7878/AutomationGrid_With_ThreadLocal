@@ -9,9 +9,6 @@ public class DriverFactory {
 	private static String gridPath;
 	private static boolean isRemote;
 	
-	
-	
-	
 	public static boolean isRemote() {
 		return isRemote;
 	}

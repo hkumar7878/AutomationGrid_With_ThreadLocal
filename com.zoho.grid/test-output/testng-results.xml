@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Zoho Regression Suite" duration-ms="17059" started-at="2018-12-07T06:16:15Z" finished-at="2018-12-07T06:16:32Z">
+  <suite name="Zoho Regression Suite" duration-ms="19831" started-at="2018-12-09T12:31:26Z" finished-at="2018-12-09T12:31:46Z">
     <groups>
     </groups>
-    <test name="Chrome" duration-ms="10397" started-at="2018-12-07T06:16:15Z" finished-at="2018-12-07T06:16:25Z">
+    <test name="Chrome" duration-ms="8404" started-at="2018-12-09T12:31:26Z" finished-at="2018-12-09T12:31:34Z">
       <class name="com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local">
-        <test-method status="PASS" signature="getMethodName(java.lang.reflect.Method, java.lang.String)[pri:0, instance:com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local@65f095f8]" name="getMethodName" is-config="true" duration-ms="9483" started-at="2018-12-07T11:46:15Z" finished-at="2018-12-07T11:46:24Z">
+        <test-method status="PASS" signature="getMethodName(java.lang.reflect.Method, java.lang.String)[pri:0, instance:com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local@65f095f8]" name="getMethodName" is-config="true" duration-ms="7680" started-at="2018-12-09T18:01:26Z" finished-at="2018-12-09T18:01:34Z">
           <params>
             <param index="0">
               <value>
@@ -23,7 +23,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getMethodName -->
-        <test-method status="PASS" signature="TC_01_Verify_App_Home_Page_Thread_Local(java.util.Map)[pri:0, instance:com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local@65f095f8]" name="TC_01_Verify_App_Home_Page_Thread_Local" duration-ms="218" started-at="2018-12-07T11:46:24Z" data-provider="newComputerData10" finished-at="2018-12-07T11:46:25Z">
+        <test-method status="PASS" signature="TC_01_Verify_App_Home_Page_Thread_Local(java.util.Map)[pri:0, instance:com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local@65f095f8]" name="TC_01_Verify_App_Home_Page_Thread_Local" duration-ms="147" started-at="2018-12-09T18:01:34Z" data-provider="newComputerData10" finished-at="2018-12-09T18:01:34Z">
           <params>
             <param index="0">
               <value>
@@ -34,7 +34,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC_01_Verify_App_Home_Page_Thread_Local -->
-        <test-method status="PASS" signature="afterEachTest(org.testng.ITestResult)[pri:0, instance:com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local@65f095f8]" name="afterEachTest" is-config="true" duration-ms="628" started-at="2018-12-07T11:46:25Z" finished-at="2018-12-07T11:46:25Z">
+        <test-method status="PASS" signature="afterEachTest(org.testng.ITestResult)[pri:0, instance:com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local@65f095f8]" name="afterEachTest" is-config="true" duration-ms="503" started-at="2018-12-09T18:01:34Z" finished-at="2018-12-09T18:01:34Z">
           <params>
             <param index="0">
               <value>
@@ -47,13 +47,13 @@
         </test-method> <!-- afterEachTest -->
       </class> <!-- com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local -->
     </test> <!-- Chrome -->
-    <test name="Firefox" duration-ms="17059" started-at="2018-12-07T06:16:15Z" finished-at="2018-12-07T06:16:32Z">
+    <test name="Firefox" duration-ms="19831" started-at="2018-12-09T12:31:26Z" finished-at="2018-12-09T12:31:46Z">
       <class name="com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local">
-        <test-method status="PASS" signature="setUpFramework()[pri:0, instance:com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local@b62d79]" name="setUpFramework" is-config="true" duration-ms="3" started-at="2018-12-07T11:46:15Z" finished-at="2018-12-07T11:46:15Z">
+        <test-method status="PASS" signature="setUpFramework()[pri:0, instance:com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local@b62d79]" name="setUpFramework" is-config="true" duration-ms="19" started-at="2018-12-09T18:01:26Z" finished-at="2018-12-09T18:01:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpFramework -->
-        <test-method status="PASS" signature="getMethodName(java.lang.reflect.Method, java.lang.String)[pri:0, instance:com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local@b62d79]" name="getMethodName" is-config="true" duration-ms="15148" started-at="2018-12-07T11:46:15Z" finished-at="2018-12-07T11:46:30Z">
+        <test-method status="PASS" signature="getMethodName(java.lang.reflect.Method, java.lang.String)[pri:0, instance:com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local@b62d79]" name="getMethodName" is-config="true" duration-ms="17136" started-at="2018-12-09T18:01:26Z" finished-at="2018-12-09T18:01:43Z">
           <params>
             <param index="0">
               <value>
@@ -69,7 +69,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getMethodName -->
-        <test-method status="PASS" signature="TC_01_Verify_App_Home_Page_Thread_Local(java.util.Map)[pri:0, instance:com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local@b62d79]" name="TC_01_Verify_App_Home_Page_Thread_Local" duration-ms="61" started-at="2018-12-07T11:46:30Z" data-provider="newComputerData10" finished-at="2018-12-07T11:46:30Z">
+        <test-method status="PASS" signature="TC_01_Verify_App_Home_Page_Thread_Local(java.util.Map)[pri:0, instance:com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local@b62d79]" name="TC_01_Verify_App_Home_Page_Thread_Local" duration-ms="63" started-at="2018-12-09T18:01:43Z" data-provider="newComputerData10" finished-at="2018-12-09T18:01:43Z">
           <params>
             <param index="0">
               <value>
@@ -80,7 +80,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC_01_Verify_App_Home_Page_Thread_Local -->
-        <test-method status="PASS" signature="afterEachTest(org.testng.ITestResult)[pri:0, instance:com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local@b62d79]" name="afterEachTest" is-config="true" duration-ms="1772" started-at="2018-12-07T11:46:30Z" finished-at="2018-12-07T11:46:32Z">
+        <test-method status="PASS" signature="afterEachTest(org.testng.ITestResult)[pri:0, instance:com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local@b62d79]" name="afterEachTest" is-config="true" duration-ms="2563" started-at="2018-12-09T18:01:43Z" finished-at="2018-12-09T18:01:46Z">
           <params>
             <param index="0">
               <value>

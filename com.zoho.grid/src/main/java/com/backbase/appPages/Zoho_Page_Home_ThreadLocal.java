@@ -61,7 +61,7 @@ public class Zoho_Page_Home_ThreadLocal extends BaseSetUp_Grid{
         		 addLog("Home Page is NOT displayed successfully" + bName1,bName1);
         		System.out.println("Home Page is NOT displayed successfully");
             	reportFailure("Home Page is not displayed" + bName1);
-            failInfo("Home Page is NOT displayed successfully" + bName1);
+            	failInfo("Home Page is NOT displayed successfully" + bName1);
             	Assert.fail();
         }
     }

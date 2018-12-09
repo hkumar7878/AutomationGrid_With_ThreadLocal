@@ -1,5 +1,5 @@
 package com.backbase.utilLibrary;
-public class TestConfig{
+public class MailConfig{
 
 
 	

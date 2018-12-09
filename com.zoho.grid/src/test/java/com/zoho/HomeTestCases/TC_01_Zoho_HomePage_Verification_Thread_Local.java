@@ -25,13 +25,9 @@ import com.zoho.utilities.TestUtil;
 @Test
 public class TC_01_Zoho_HomePage_Verification_Thread_Local extends BaseSetUp_Grid {
 	String methodName=null;
-	String SheetName=null;
-	String testCasesSheetName=null;
-	ActionBeforeTest actionBeforeTest=new ActionBeforeTest();
 	ActionAfterTest actionAfterTest=new ActionAfterTest();
 	Zoho_Page_Home_ThreadLocal homePgObj_td;	
 	WebDriver driver2;
-	public RemoteWebDriver driver_rm;
 	String bName=null;
 	
 	@BeforeMethod()
@@ -49,7 +45,6 @@ public class TC_01_Zoho_HomePage_Verification_Thread_Local extends BaseSetUp_Gri
 		 System.out.println("Starting " + method.getName() + "test case" );		
 		 test=rep.startTest("Verify App Home Page" + "_" + bName);
 		 setExtentTest(test);
-		 //logInfo("Launching broswer which is " + bName);
 		 initializeTestBaseSetup3(bName);
 	}
 	
@@ -57,10 +52,7 @@ public class TC_01_Zoho_HomePage_Verification_Thread_Local extends BaseSetUp_Gri
 	@Parameters({"browserType"})
 	public void TC_01_Verify_App_Home_Page_Thread_Local(Map <String,String> data) throws ParseException, InterruptedException, InvocationTargetException
 	{	
-
-	//	String bName=browserType;
 		logInfo("Starting the test for ");
-		//String s1=data.get("browser");
 		homePgObj_td= new Zoho_Page_Home_ThreadLocal(getDriver());
 		homePgObj_td.verifyHomePage(bName);
 	}
