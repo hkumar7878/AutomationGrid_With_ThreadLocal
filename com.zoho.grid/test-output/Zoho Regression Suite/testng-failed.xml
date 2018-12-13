@@ -6,6 +6,19 @@
     <listener class-name="com.zoho.extentlisteners.ExtentListeners"/>
     <listener class-name="com.zoho.listeners.CustomListeners"/>
   </listeners>
+  <test name="Chrome(failed)" parallel="tests">
+    <parameter name="browserType" value="Chrome"/>
+    <classes>
+      <class name="com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local">
+        <methods>
+          <include name="TC_01_Verify_App_Home_Page_Thread_Local"/>
+          <include name="getMethodName"/>
+          <include name="getMethodName"/>
+          <include name="setUpFramework"/>
+        </methods>
+      </class> <!-- com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local -->
+    </classes>
+  </test> <!-- Chrome(failed) -->
   <test name="Firefox(failed)" parallel="tests">
     <parameter name="browserType" value="Firefox"/>
     <classes>
@@ -15,7 +28,6 @@
           <include name="getMethodName"/>
           <include name="getMethodName"/>
           <include name="setUpFramework"/>
-          <include name="afterEachTest"/>
         </methods>
       </class> <!-- com.zoho.HomeTestCases.TC_01_Zoho_HomePage_Verification_Thread_Local -->
     </classes>
